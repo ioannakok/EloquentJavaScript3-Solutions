@@ -90,23 +90,27 @@ function nth(list, number) {
 
 // Exercise 4.4: Deep comparison
 function deepEqual(obj1, obj2) {
-	if(obj1 === obj2)
-      return true;
+  if(obj1 === obj2)
+    return true;
 
   if(obj1 == null || typeof obj1 != "object" ||
     obj2 == null || typeof obj2 != "object")
     return false;
 
+  return compareObjects(obj1, obj2);
+}
+
+function compareObjects(obj1, obj2) {
   let keysObj1 = Object.keys(obj1);
   let keysObj2 = Object.keys(obj2);
 
   if(keysObj1.length != keysObj2.length)
-    return false;
-
+    return false; 
+    
   for(let key of keysObj1) {
     if(!keysObj2.includes(key) || !deepEqual(obj1[key], obj2[key]))
       return false;
   }
-
+  
   return true;
 }

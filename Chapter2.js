@@ -6,15 +6,17 @@ while(hash.length < 8) {
 }
 
 // Exercise 2.2: FizzBuzz
-for(let num = 0; num <= 100; num++) {
+for(let num = 1; num <= 100; num++) {
   let output = "";
   if(num % 3 == 0)
     output += "Fizz";
-  else if(num % 5 == 0)
+  if(num % 5 == 0)
     output += "Buzz";
+  
+  if(output == "")
+    console.log(num)
   else
-    output = num;
-  console.log(output)
+    console.log(output)
 }
 
 // Exercise 2.3: Chess Board
